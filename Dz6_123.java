@@ -35,7 +35,7 @@ class Dz6_123 {
     public static void main(String[] args) {
       
     // Input user data block  
-      int arr[] = {1,2,3,4,5,};
+      int arr[] = {1,2,3,4,5,6,7,8,9,10};
     ////////////////////////  
       
       System.out.println ("Summ of array elements "+Arrays.toString(arr)+" is : "+summArray(arr));
