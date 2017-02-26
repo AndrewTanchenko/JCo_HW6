@@ -1,9 +1,13 @@
 // Javacore / Tanchenko A.
 /*
- * 4. Дано целое число K и массив из десяти целых ненулевых чисел. Вывести номер первого числа в массиве, большего K. Если таких чисел нет, то вывести 0.
- * 5. Дано целое число K и массив из десяти целых ненулевых чисел. Вывести номер последнего числа в массиве, большего K. Если таких чисел нет, то вывести 0.
- * 6. Дано вещественное число B, целое число N и массив из N целых чисел, упорядоченных по возрастанию. Вывести элементы массива вместе с числом B, сохраняя упорядоченность выводимых чисел.
- * 7. Дано целое число N и массив из N целых чисел, упорядоченный по возрастанию. Данный набор может содержать одинаковые элементы. Вывести в том же порядке все различные элементы данного массива.
+ * 4. Дано целое число K и массив из десяти целых ненулевых чисел. Вывести номер первого числа в массиве, большего K. 
+      Если таких чисел нет, то вывести 0.
+ * 5. Дано целое число K и массив из десяти целых ненулевых чисел. Вывести номер последнего числа в массиве, большего K. 
+      Если таких чисел нет, то вывести 0.
+ * 6. Дано вещественное число B, целое число N и массив из N целых чисел, упорядоченных по возрастанию. 
+      Вывести элементы массива вместе с числом B, сохраняя упорядоченность выводимых чисел.
+ * 7. Дано целое число N и массив из N целых чисел, упорядоченный по возрастанию. Данный набор может содержать одинаковые элементы. 
+      Вывести в том же порядке все различные элементы данного массива.
  */
 
 //import java.util.Scanner;
@@ -26,6 +30,22 @@ class Dz6_4567 {
        if(arr[i]>k){j=i+1;break;};
      }
     return j;
+  }
+  
+  static  int[] createArrN(int n) {
+    int arrN[] = new int[n];
+     for(int i = 0;i<=n-1;i++){
+       arrN[i]=i+1;
+     }
+    return arrN;
+  }
+  
+  static  int[] createArrN_v2(int n) {
+    int arrN[] = new int[n];
+     for(int i = 0;i<=n-1;i++){
+       arrN[i]=+i+1+(int)(Math.random()*2);
+     }
+    return arrN;
   }
 
   static  boolean checkArrayOrder(int[] arr) {
@@ -70,18 +90,28 @@ class Dz6_4567 {
   
     public static void main(String[] args) {
       
-    // Input user data block  
-      int arr[] = {1,2,3,2,3,5,4,7,6,2};
-      int arr1[] = {1,2,3,4,5,6,7,8,9,10};
-      int arr2[] = {1,1,2,4,5,6,7,7,9,10};
+    // Input user data block
       int k=3;
+      int arr[] = createArrN(10);
+      
+      int n=12;
       double k1=3.5;
+      int arrN[] = createArrN(n);
+            
+      n=15;
+      int arrN_v2[] = createArrN_v2(n);
+      
     ////////////////////////  
       
+      System.out.println ("4)");
       System.out.println ("Index of element > "+k+" from L to R in "+Arrays.toString(arr)+" is : "+ compareArrayValueLtoR(arr,k));
+      System.out.println ("5)");
       System.out.println ("Index of element > "+k+" from R to L in "+Arrays.toString(arr)+" is : "+ compareArrayValueRtoL(arr,k));
-      System.out.println ("Print "+k1+" into array --> "+Arrays.toString(arr1)+" UpdArray : "+ getArrayUpd(arr1,k1));
-      System.out.println ("Get array "+Arrays.toString(arr2)+" unique elements : "+getArrayUniqVal(arr2));
+      System.out.println ("6)");
+      System.out.println ("Print "+k1+" into array --> "+Arrays.toString(arrN));
+      System.out.println ("Updated Array : "+ getArrayUpd(arrN,k1));
+      System.out.println ("7)");
+      System.out.println ("Get array "+Arrays.toString(arrN_v2)+" unique elements : "+getArrayUniqVal(arrN_v2));
       
    } 
  }
